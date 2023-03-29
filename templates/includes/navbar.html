@@ -23,6 +23,11 @@
     <div class="navbar-text">
 
       {% if user.is_authenticated %}
+        <br>
+        <a href="{% url 'task_manager:task-create' %}"
+           class="btn btn-primary" style="color: white">
+          Create New Task
+        </a>
         <a href="{% url "task_manager:worker-detail" pk=user.id %}">
           <button type="button" class="btn">Profile</button>
         </a>
