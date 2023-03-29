@@ -18,16 +18,17 @@ from task_manager.models import Task, Worker, Tag, TaskType
 def index(request):
     """View function for the home page of the site."""
     user = request.user
-    queryset = Task.objects.filter(assignees=user.id)
+    queryset = Task.objects.all()
     num_tasks = queryset.count()
-    num_high_priority_tasks = queryset.filter(
-        priority__in=("Urgent", "High")
+    my_tasks = queryset.filter(assignees=user.id).count()
+    num_finished_tasks = queryset.filter(
+        assignees=user.id,
+        is_completed=True
     ).count()
-    num_finished_tasks = queryset.filter(is_completed=True).count()
 
     context = {
         "num_tasks": num_tasks,
-        "num_high_priority_tasks": num_high_priority_tasks,
+        "my_tasks": my_tasks,
         "num_finished_tasks": num_finished_tasks,
     }
 

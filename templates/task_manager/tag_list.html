@@ -3,14 +3,14 @@
 {% load crispy_forms_filters %}
 
 {% block content %}
-  <h1 style="text-align: center">
-    Tags List
-    <a href="{% url 'task_manager:tag-create' %}"
-       class="btn btn-primary link-to-page">
-      Create
-    </a>
-  </h1>
-  <br>
+    <h3 style="text-align: center">
+      Tags List
+      <a href="{% url 'task_manager:tag-create' %}"
+         class="btn btn-primary link-to-page">
+        Create
+      </a>
+    </h3>
+    <br>
 
   {% if tag_list %}
     <table class="table">

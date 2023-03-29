@@ -51,14 +51,14 @@ class Task(models.Model):
     assignees = models.ManyToManyField(Worker, related_name="tasks")
     tags = models.ManyToManyField("Tag", related_name="tasks")
 
+    class Meta:
+        ordering = ["deadline"]
+
     def __str__(self):
         return self.name
 
     def get_absolute_url(self):
         return reverse("task_manager:task-detail", kwargs={"pk": self.pk})
-
-    class Meta:
-        ordering = ["deadline"]
 
 
 class TaskType(models.Model):

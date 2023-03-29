@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>
+  <h3>
     Username: {{ worker.username }}
     <a href="{% url 'task_manager:worker-delete' pk=worker.id %}"
        class="btn btn-danger link-to-page">
@@ -18,5 +18,4 @@
   <p><strong>Last name:</strong> {{ worker.last_name }}</p>
   <p><strong>Position:</strong> {{ worker.position }}</p>
   <p><strong>Is staff:</strong> {{ worker.is_staff }}</p>
-
 {% endblock %}

@@ -2,7 +2,7 @@
 {% load crispy_forms_filters %}
 
 {% block content %}
-  <h1 class="h1-tag-form">{{ object|yesno:"Update,Create" }} type</h1>
+  <h3 class="h1-tag-form">{{ object|yesno:"Update,Create" }} type</h3>
   <div class="wrapper-tag-form">
     <form class="tag-form" action="" method="post" novalidate>
       {% csrf_token %}

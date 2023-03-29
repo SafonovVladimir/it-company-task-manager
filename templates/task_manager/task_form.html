@@ -7,7 +7,6 @@
     <form class="tag-form" action="" method="post" novalidate>
       {% csrf_token %}
       {{ form|crispy }}
-
       <input type="submit" value="Submit" class="btn btn-primary">
     </form>
   </div>
