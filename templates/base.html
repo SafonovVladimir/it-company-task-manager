@@ -41,22 +41,20 @@
   {% block header %}
     {% include "includes/navigation.html" %}
   {% endblock %}
+  <header class="header-2">
+    <div class="page-header section-height-75 relative"
+         style="background-image: url('{{ ASSETS_ROOT }}/img/curved-images/curved.jpg')">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-7 text-center mx-auto">
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
   <div class="container-fluid">
     <div class="row">
       <div class="col-sm-12">
-
-        <header class="header-2">
-          <div class="page-header section-height-75 relative"
-               style="background-image: url('{{ ASSETS_ROOT }}/img/curved-images/curved.jpg')">
-            <div class="container">
-              <div class="row">
-                <div class="col-lg-7 text-center mx-auto">
-                </div>
-              </div>
-            </div>
-          </div>
-        </header>
-
         <section class="pt-0 pb-4" id="count-stats">
           <div class="container">
             <div class="row">
@@ -76,9 +74,11 @@
       </div>
     </div>
   </div>
+
   {% block footer %}
     {% include "includes/footer.html" %}
   {% endblock footer %}
+
 </div>
 </body>
 

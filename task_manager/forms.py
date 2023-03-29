@@ -10,7 +10,10 @@ class TaskNameSearchForm(forms.Form):
         max_length=255,
         required=False,
         label="",
-        widget=forms.TextInput(attrs={"placeholder": "Search by name"}),
+        widget=forms.TextInput(attrs={
+            "class": "form-list-find",
+            "placeholder": "Search by name"
+        }),
     )
 
 

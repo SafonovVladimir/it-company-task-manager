@@ -17,20 +17,22 @@
 }
 
 .form-list-find {
-  display: block;
-  width: 100%;
-  padding: 0.5rem 0.75rem;
-  font-size: 0.875rem;
-  font-weight: 400;
-  line-height: 1.4rem;
-  color: #495057;
-  background-color: #fff;
-  background-clip: padding-box;
-  border: 1px solid #d2d6da;
-  -webkit-appearance: none;
-          appearance: none;
-  border-radius: 0.5rem;
-  transition: box-shadow 0.15s ease, border-color 0.15s ease; }
+    /*display: block;*/
+    height: 40px;
+    width: 20%;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.4rem;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #d2d6da;
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: 0.5rem;
+    transition: box-shadow 0.15s ease, border-color 0.15s ease;
+}
 
 .link-to-page {
     float: right;

@@ -8156,7 +8156,7 @@ textarea.form-control-lg {
   margin-left: -1rem; }
 
 .btn {
-  margin-bottom: 1rem;
+  /*margin-bottom: 1rem;*/
   letter-spacing: -0.025rem;
   text-transform: uppercase;
   box-shadow: 0 4px 7px -1px rgba(0, 0, 0, 0.11), 0 2px 4px -1px rgba(0, 0, 0, 0.07);
@@ -11892,7 +11892,7 @@ p {
   margin-top: -20rem !important; }
 
 .mt-n15 {
-  margin-top: -26rem !important; }
+  margin-top: -23rem !important; }
 
 .me-n6 {
   margin-right: -4rem !important; }

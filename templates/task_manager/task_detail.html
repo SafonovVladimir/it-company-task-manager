@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>
+  <h3>
     {{ task.name }}
     <a href="{% url 'task_manager:task-delete' pk=task.id %}"
        class="btn btn-danger link-to-page">
@@ -24,7 +24,7 @@
         Complete
       </a>
     {% endif %}
-  </h1>
+  </h3>
 
   <p><strong>Description:</strong> {{ task.description }}</p>
   <p><strong>Deadline:</strong> {{ task.deadline }}</p>

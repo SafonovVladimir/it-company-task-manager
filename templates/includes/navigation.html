@@ -2,10 +2,11 @@
   <div class="row">
     <div class="col-12">
       <nav
-          class="navbar navbar-expand-lg  blur blur-rounded top-0 z-index-fixed shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
+          class="navbar navbar-expand-lg blur blur-rounded top-0
+          z-index-fixed shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
         <div class="container-fluid">
           <a class="navbar-brand font-weight-bolder ms-sm-3"
-             href="/" rel="tooltip" title="Designed and Coded by Creative Tim"
+             href="/" rel="tooltip" title="Beautiful Task Manager"
              data-placement="bottom">
             Beautiful Task Manager
           </a>
@@ -23,24 +24,26 @@
                id="navigation">
             <ul class="navbar-nav navbar-nav-hover ms-lg-2 ps-lg-5 w-100">
               <li class="nav-item dropdown dropdown-hover mx-2">
-                <a class="nav-link" href="{% url 'task_manager:task-list' %}">All
-                  tasks</a>
+                <a class="nav-link" href="{% url 'task_manager:task-list' %}"
+                title="All tasks">All tasks</a>
               </li>
               <li class="nav-item dropdown dropdown-hover mx-2">
                 <a class="nav-link"
-                   href="{% url 'task_manager:task-list' %}?my_tasks=True">My
-                  tasks</a>
+                   href="{% url 'task_manager:task-list' %}?my_tasks=True"
+                title="My tasks">My tasks</a>
               </li>
               <li class="nav-item dropdown dropdown-hover mx-2">
                 <a class="nav-link" href="{% url 'task_manager:task-list' %}
-?is_completed=True&my_tasks=True">Completed</a>
+?is_completed=True&my_tasks=True" title="Completed">Completed</a>
               </li>
               <li class="nav-item dropdown dropdown-hover mx-2">
-                <a class="nav-link" href="{% url 'task_manager:tag-list' %}">Tags</a>
+                <a class="nav-link" href="{% url 'task_manager:tag-list' %}"
+                title="Tags">Tags</a>
               </li>
               <li class="nav-item dropdown dropdown-hover mx-2">
                 <a class="nav-link"
-                   href="{% url 'task_manager:type-list' %}">Task types</a>
+                   href="{% url 'task_manager:type-list' %}"
+                title="Task types">Task types</a>
               </li>
               {% if user.is_authenticated %}
                 <li class="nav-item ms-lg-auto">
@@ -48,7 +51,7 @@
                      href="{% url 'task_manager:task-create' %}">
                     <p class="d-inline text-sm z-index-1 font-weight-bold"
                        data-bs-toggle="tooltip" data-bs-placement="bottom"
-                       title="Create New Task">Create New Task</p>
+                       title="Create New Task"><b>Create New Task</b></p>
                   </a>
                 </li>&emsp;&emsp;&emsp;
                 <li class="nav-item">
