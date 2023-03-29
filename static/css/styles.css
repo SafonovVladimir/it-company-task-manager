@@ -1,0 +1,42 @@
+.container-fluid {
+    width: 90%;
+}
+.h1-tag-form {
+    display: block;
+    text-align: center;
+}
+
+.wrapper-tag-form {
+    display: flex;
+    justify-content: center;
+}
+
+.tag-form {
+    width: 50%;
+}
+
+.link-to-page {
+    float: right;
+    margin: 0 2px 0 2px;
+}
+
+.task-priority-button {
+    color: white;
+    background: red;
+    border-radius: 10px;
+    border: none;
+}
+
+.text-incompleted-color {
+    color: black;
+    font-weight: bold;
+}
+
+.text-incompleted-color:hover {
+    color: black;
+    font-weight: bold;
+}
+
+.text-completed-color {
+    color: #b6b6b6;
+}
