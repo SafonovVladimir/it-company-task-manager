@@ -23,9 +23,10 @@ SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY",
         "django-insecure-_h2i@2c-91n+ivz*75ftk7ir#tqmsa#a0up2!-9vu8+f8w@%_^")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
+DEBUG = os.environ.get("DJANGO_DEBUG", "") != "False"
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["127.0.0.1"]
 
 INTERNAL_IPS = [
     "127.0.0.1",
@@ -129,14 +130,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = "static/"
-
 STATICFILES_DIRS = (BASE_DIR / "static",)
-
 STATIC_ROOT = BASE_DIR / "staticfiles"
+ASSETS_ROOT = "/static/assets"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-
-ASSETS_ROOT = "/static/assets"
