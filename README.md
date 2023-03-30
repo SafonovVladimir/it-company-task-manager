@@ -20,8 +20,15 @@ python manage.py runserver #Starts Django Server
 
 * Authentication functionality for Worker/User
 * Managing tasks, task's type, tags directly from our website
+* Sort by Deadline and Priority in ascending and descending order.
 * Powerful admin panel for advanced managing
 
 ## Demo
-
+* Main page
 ![Website interface](demo.jpg)
+* Task List
+![Task List interface](task_list.jpg)
+* Sort by Priority (asc and desc)
+![Sort by Priority](sort_by_priority_(desc).jpg)
+* Sort by Deadline (asc and desc)
+![Sort by Deadline](sort_by_deadline_(desc).jpg)
