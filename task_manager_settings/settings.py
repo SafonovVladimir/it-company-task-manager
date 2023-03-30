@@ -22,16 +22,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
-# SECRET_KEY = os.environ.get(
-#     "DJANGO_SECRET_KEY",
-#     "django-insecure-_h2i@2c-91n+ivz*75ftk7ir#tqmsa#a0up2!-9vu8+f8w@%_^"
-# )
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
 DEBUG = os.environ.get("DJANGO_DEBUG", "") != "False"
 
-ALLOWED_HOSTS = ["127.0.0.1"]
+ALLOWED_HOSTS = ["127.0.0.1", "task-manager-hhdl.onrender.com"]
 
 INTERNAL_IPS = [
     "127.0.0.1",
