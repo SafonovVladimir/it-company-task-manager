@@ -42,7 +42,7 @@
 .task-priority-button {
     color: white;
     background: red;
-    border-radius: 10px;
+    border-radius: 7px;
     border: none;
 }
 
@@ -58,4 +58,8 @@
 
 .text-completed-color {
     color: #b6b6b6;
+}
+
+#div_id_deadline div {
+    display: flex;
 }
