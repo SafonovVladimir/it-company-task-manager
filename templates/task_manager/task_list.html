@@ -104,7 +104,9 @@
           {% if task.priority == 'Urgent' %}
             <td>
               <button
-                  class="task-priority-button">{{ task.priority }}</button>
+                  class="task-priority-button" disabled>
+                {{ task.priority }}
+              </button>
             </td>
           {% elif task.priority == 'High' %}
             <td style="font-weight: bold;">{{ task.priority }}</td>
