@@ -11,7 +11,8 @@ Django project for managing your tasks
 git clone https://github.com/SafonovVladimir/it-company-task-manager.git
 cd it-company-task-manager
 python -m venv venv
-\venv\Scripts\activate
+venv\Scripts\activate (on Windows)
+source venv/bin/activate (on macOS)
 pip install -r requirements.txt
 python manage.py runserver #Starts Django Server
 ```
