@@ -17,16 +17,65 @@ class PublicTaskTests(TestCase):
 
 
 class PublicTagTests(TestCase):
+    def setUp(self):
+        self.tag = Tag.objects.create(name="#bug")
+
     def test_login_required(self):
         res = self.client.get(TAG_URL)
         self.assertNotEqual(res.status_code, 200)
 
+    def test_tag_list(self):
+        response = self.client.get(reverse("task_manager:tag-list"))
+        self.assertNotEqual(response.status_code, 200)
+
+    def test_tag_create(self):
+        response = self.client.get(reverse("task_manager:tag-create"))
+        self.assertNotEqual(response.status_code, 200)
+
+    def test_tag_update(self):
+        response = self.client.get(reverse(
+            "task_manager:tag-update",
+            args=[self.tag.pk]
+        ))
+        self.assertNotEqual(response.status_code, 200)
+
+    def test_tag_delete(self):
+        response = self.client.get(reverse(
+            "task_manager:tag-delete",
+            args=[self.tag.pk]
+        ))
+        self.assertNotEqual(response.status_code, 200)
+
 
 class PublicTaskTypeTests(TestCase):
+    def setUp(self):
+        self.tag = TaskType.objects.create(name="Bug")
+
     def test_login_required(self):
         res = self.client.get(TASK_TYPE_URL)
-
         self.assertNotEqual(res.status_code, 200)
+
+    def test_task_type_list(self):
+        response = self.client.get(reverse("task_manager:type-list"))
+        self.assertNotEqual(response.status_code, 200)
+
+    def test_task_type_create(self):
+        response = self.client.get(reverse("task_manager:type-create"))
+        self.assertNotEqual(response.status_code, 200)
+
+    def test_task_type_update(self):
+        response = self.client.get(reverse(
+            "task_manager:type-update",
+            args=[self.tag.pk]
+        ))
+        self.assertNotEqual(response.status_code, 200)
+
+    def test_task_type_delete(self):
+        response = self.client.get(reverse(
+            "task_manager:type-delete",
+            args=[self.tag.pk]
+        ))
+        self.assertNotEqual(response.status_code, 200)
 
 
 class PrivatePositionTests(TestCase):
