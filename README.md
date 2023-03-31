@@ -30,13 +30,13 @@ python manage.py runserver #Starts Django Server
 
 ## Demo
 * Main page
-![Website interface](demo.jpg)
+![Website interface](readme_pictures/demo.jpg)
 
 * Task List
-![Task List interface](task_list.jpg)
+![Task List interface](readme_pictures/task_list.jpg)
 
 * Sort by Priority (asc and desc)
-![Sort by Priority](sort_by_priority_(desc).jpg)
+![Sort by Priority](readme_pictures/sort_by_priority_(desc).jpg)
 
 * Sort by Deadline (asc and desc)
-![Sort by Deadline](sort_by_deadline_(desc).jpg)
+![Sort by Deadline](readme_pictures/sort_by_deadline_(desc).jpg)
