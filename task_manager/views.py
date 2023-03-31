@@ -72,10 +72,16 @@ class TaskListView(LoginRequiredMixin, generic.ListView):
                     name__icontains=form.cleaned_data["name"]
                 ).order_by(order_by)
             if is_completed:
-                return queryset.filter(
-                    name__icontains=form.cleaned_data["name"],
-                    is_completed=is_completed
-                )
+                if priority:
+                    return queryset.filter(
+                        is_completed=is_completed,
+                        priority=priority,
+                    )
+                else:
+                    return queryset.filter(
+                        name__icontains=form.cleaned_data["name"],
+                        is_completed=is_completed
+                    )
             if priority:
                 return queryset.filter(
                     name__icontains=form.cleaned_data["name"],
