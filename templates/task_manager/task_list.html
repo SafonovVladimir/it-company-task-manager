@@ -1,0 +1,124 @@
+{% extends "base.html" %}
+{% load static %}
+{% load query_transform %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+  <h3 style="text-align: center">
+    {% if request.GET.is_completed == 'True' %}Completed
+    {% elif request.GET.my_tasks == 'True' %}My
+    {% endif %}Task List</h3>
+  <form action="" method="get" class="form-inline">
+    {{ search_form }}
+    <input class="btn btn-outline-primary" type="submit" value="🔎">&emsp;&emsp;&emsp;
+    <b>Completed:</b>&nbsp;
+    <label>
+      <input id="complete_yes" type="checkbox" name="complete_yes"
+             value="complete_yes"
+             onchange='window.location.href=
+                 "?{% url_replace request 'is_completed' 'True' %}"'
+          {% if request.GET.is_completed == 'True' %}
+             checked {% endif %}>
+    </label>Yes&nbsp;&emsp;
+
+    <label>
+      <input type="checkbox" name="complete_no" value="complete_no"
+             onchange='window.location.href=
+                 "?{% url_replace request 'is_completed' 'False' %}"'
+          {% if request.GET.is_completed == 'False' %}
+             checked {% endif %}>
+    </label>No&emsp;&emsp;&emsp;
+    <b>Priority:</b>&nbsp;
+    <label>
+      <input type=checkbox name="urgent" value="urgent"
+             onchange='window.location.href=
+                 "?{% url_replace request 'priority' 'Urgent' %}"'
+          {% if request.GET.priority == 'Urgent' %}
+             checked {% endif %}>
+    </label>Urgent&nbsp;
+    <label>
+      <input type="checkbox" name="high" value="high"
+             onchange='window.location.href=
+                 "?{% url_replace request 'priority' 'High' %}"'
+          {% if request.GET.priority == 'High' %} checked {% endif %}>
+    </label>High&nbsp;
+    <label>
+      <input type="checkbox" name="medium" value="medium"
+             onchange='window.location.href=
+                 "?{% url_replace request 'priority' 'Medium' %}"'
+          {% if request.GET.priority == 'Medium' %}
+             checked {% endif %}>
+    </label>Medium&nbsp;
+    <label>
+      <input type="checkbox" name="low" value="low"
+             onchange='window.location.href=
+                 "?{% url_replace request 'priority' 'Low' %}"'
+          {% if request.GET.priority == 'Low' %} checked {% endif %}>
+    </label>Low&emsp;&emsp;&emsp;
+    <a href="{% url 'task_manager:task-list' %}
+{% if request.GET.my_tasks == 'True' %}?my_tasks=True{% endif %}">
+      Reset filters</a>
+  </form>
+
+  {% if task_list %}
+    <table class="table">
+      <tr>
+        <th style="text-align: center;">Completed</th>
+        <th>Name</th>
+        <th><a href="?{% url_replace request 'order_by' 'deadline' %}"
+               style="text-decoration: none; color: black">Deadline
+          {% if request.GET.order_by == 'deadline' %}🔼
+          {% elif request.GET.order_by == '-deadline' %}
+            🔽{% endif %}</a>
+        </th>
+        <th><a href="?{% url_replace request 'order_by' 'priority' %}"
+               style="text-decoration: none; color: black">Priority
+          {% if request.GET.order_by == 'priority' %}🔼
+          {% elif request.GET.order_by == '-priority' %}
+            🔽{% endif %}</a>
+        </th>
+        <th><a href="?{% url_replace request 'order_by' 'task_type' %}"
+               style="text-decoration: none; color: black">Type
+          {% if request.GET.order_by == 'task_type' %}🔼
+          {% elif request.GET.order_by == '-task_type' %}
+            🔽{% endif %}</a>
+        </th>
+      </tr>
+
+      {% for task in task_list %}
+        <tr>
+          <td style="text-align: center;">
+            {% if task.is_completed %}
+              <img src="{% static 'img/complete.png' %}" alt=""
+                   width="30"/>
+            {% else %}
+              <img src="{% static 'img/incomplete.png' %}" alt=""
+                   width="30"/>
+            {% endif %}
+          </td>
+          <td><a class="text-incompleted-color
+              {% if task.is_completed %}text-completed-color{% endif %}"
+                 href="{% url 'task_manager:task-detail' pk=task.id %}">
+            {{ task.name }} </a></td>
+          <td>{{ task.deadline }}</td>
+          {% if task.priority == 'Urgent' %}
+            <td>
+              <button
+                  class="task-priority-button" disabled>
+                {{ task.priority }}
+              </button>
+            </td>
+          {% elif task.priority == 'High' %}
+            <td style="font-weight: bold;">{{ task.priority }}</td>
+          {% else %}
+            <td>{{ task.priority }}</td>
+          {% endif %}
+          <td>{{ task.task_type }}</td>
+        </tr>
+      {% endfor %}
+    </table>
+
+  {% else %}
+    <p>There are no task.</p>
+  {% endif %}
+{% endblock %}

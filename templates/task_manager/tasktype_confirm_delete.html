@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h3>Delete type of task?</h3>
+  <form action="" method="post">
+    {% csrf_token %}
+
+    <input type="submit" value="Yes" class="btn btn-danger">
+    <a href="{% url "task_manager:task-list"%}" class="btn btn-success">No</a>
+  </form>
+{% endblock %}
